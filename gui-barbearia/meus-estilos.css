@@ -48,3 +48,21 @@ strong em
 {
     width: 50%;
 }
+
+ul
+{
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15%;
+}
+
+.beneficios
+{
+    background: #FFFFFF;
+    padding: 20px;
+}
+
+h2
+{
+    text-align: center;
+}
