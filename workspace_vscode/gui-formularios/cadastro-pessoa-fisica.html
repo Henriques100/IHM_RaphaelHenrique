@@ -1,0 +1,57 @@
+<body>
+    <form>
+        <label for="inNome">Primeiro nome:</label>
+        <input id="inNome" type="text" size="20">
+        <br>
+        <label for="inSobrenome">Sobrenome:</label>
+        <input id="inSobrenome" type="text" size="40">
+        <br>
+        <label>Estado Civil</label>
+        <br>
+        <input id="inEC1" name="eCivil" type="radio" value="solteiro">
+        <label for="inEC1">Solteiro</label>
+        <br>
+        <input id="inEC2" name="eCivil" type="radio" value="casado">
+        <label for="inEC2" >Casado</label>
+        <br>
+        <input id="inEC3" name="eCivil" type="radio" value="divorciado">
+        <label for="inEC3">Divorciado</label>
+        <br>
+        <label>Habilidades:</label>
+        <br>
+        <input id="inHab1" name="hab1" type="checkbox" value="html">
+        <label for="inHab1">HTML</label>
+        <br>
+        <input id="inHab2" name="hab2" type="checkbox" value="css">
+        <label for="inHab2">CSS</label>
+        <br>
+        <input id="inHab3" name="hab3" type="checkbox" value="js">
+        <label for="inHab3">JavaScript</label>
+        <br>
+        <label for="inCarro">Carro:</label>
+        <select id="inCarro" name="carro" >
+        <optgroup label="Carros Suecos">
+        <option value="volvo">Volvo</option>
+        <option value="scania">Scania</option>
+        </optgroup>
+        <optgroup label="Carros Teutônicos">
+        <option value="porsche">Porshche</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+        </optgroup>
+        <option value="ferrari" >Ferrari</option>
+        
+        </select>
+        <br>
+        <label for="inEscolaridade">Escolaridade:</label>
+        <select id="inEscolaridade" name="escolaridade" >
+        <option value="Ensino Médio">Ensino Médio</option>
+        <option value="Superior" >Superior</option>
+        <option value="Pós-graduação">Pós-graduação</option>
+        <option value="Mestrado" selected>Mestrado</option>
+        <option value="Doutorado">Doutorado</option>
+        </select>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
