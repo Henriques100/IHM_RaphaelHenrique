@@ -1,3 +1,4 @@
+import { AlertService } from './../../services/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { IProduto } from 'src/app/models/produto.models';
 import { ProdutoService } from 'src/app/services/produto.service';
@@ -9,21 +10,26 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class ProdutoTabelaComponent implements OnInit{
   produtos : IProduto[] = [];
-  constructor( private service: ProdutoService) {}
+  constructor(
+    private service: ProdutoService,
+    private alertService: AlertService
+    ) {
+  }
   ngOnInit(): void {
-    this.produtos = [
-      {id:1, descricao:'Furadeira', preco:800.00}
+    this.service.findAll().subscribe({
+      next: (dados) => {
+        this.produtos = dados;
+        const tit = 'Sucesso ao buscar produtos';
+        const msg = 'A tabela mostrar os produtos encontrados'
+        this.alertService.sucess(tit,msg);
+      }
       ,
-      {id:2, descricao:'Lixadeira', preco:350.00}
-      ,
-      {id:3, descricao:'Serra Circular', preco:500.00}
-    ];
-
-    // apenas para debug
-    for(let p of this.produtos){
-      console.log( p.id );
-      console.log( p.descricao );
-      console.log( p.preco );
-    }
+      error: (e) => {
+        const tit = 'Erro buscando produtos';
+        const msg = e.message;
+        this.alertService.error(tit,msg);
+        console.error(e);
+      }
+    });
   }
 }

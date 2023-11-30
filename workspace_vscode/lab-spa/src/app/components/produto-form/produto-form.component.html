@@ -1,9 +1,38 @@
-<label for="inDesc">Descricao</label>
-<input type="text" id="inDesc" [(ngModel)]="descricao">
-<br>
+<div class="container">
 
-<label for="inPreco">Preco</label>
-<input type="text" id="inPreco" [(ngModel)]="preco">
-<br>
+  <h1>Formulário do Produto</h1>
 
-<button (click) = "onCadastrar()">Cadastrar</button>
+  <form [formGroup]="formulario">
+    <div class="mt-3">
+      <label for="inDesc">Descricao</label>
+      <input type="text" id="inDesc"  class="form-control" formControlName="descricao">
+      <div *ngIf="formulario.get('descricao')?.errors?.['required']">
+        <small class="text-danger">Descricao deve ser informada</small>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <label for="inPreco">Preco</label>
+      <input type="text" id="inPreco"  class="form-control" formControlName="preco">
+      <div *ngIf="formulario.get('descricao')?.errors?.['minlength']">
+        <small class="text-danger">Descricao deve ter no mínimo de 5 caracteres</small>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <button (click) = "onCadastrar()"
+      [disabled]="formulario.invalid"
+      class="btn btn-primary"
+      >Cadastrar
+    </button>
+    </div>
+  </form>
+
+
+  <div class="d-flex justify-content-start mt-5">
+    <button class="btn btn-outline-primary rounded-start-5"
+    [routerLink]="['/produtotabela']"
+    >Cancelar e voltar
+    </button>
+  </div>
+</div>
